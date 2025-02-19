@@ -140,7 +140,7 @@ function SearchForm() {
         setSearchParams({});
         setMovies([]);
         setFieldValue("search", "");
-        navigate("/");
+        navigate("/movies");
     };
 
     return (
