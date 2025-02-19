@@ -1,5 +1,5 @@
 import { Formik, Field, Form } from "formik";
-import { useSearchParams, useNavigate } from "react-router";
+import { useSearchParams, useNavigate, Link } from "react-router";
 import { useState, useEffect } from "react";
 import { fetchMovies, ENDPOINTS, BASE_URL, IMG_BASE_URL } from "../../../services/api";
 import css from './SearchForm.module.css';
