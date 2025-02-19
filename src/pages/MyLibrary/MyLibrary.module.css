@@ -1,0 +1,137 @@
+.section {
+    background-color: var(--ana-renk);
+    color: var(--metin-rengi);
+    font-family: var(--roboto-font);
+    padding: 2rem 3rem;
+}
+
+.myLibraryContainer {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.myLibraryTitle {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--metin-rengi);
+}
+
+.movieGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* Varsayılan grid yapısı */
+    gap: 1rem;
+}
+
+.movieCard {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background-color: var(--ikincil-renk);
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.movieCard:hover {
+    transform: scale(1.05);
+}
+
+.moviePoster {
+    width: 100%;
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.moviePoster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.movieCard:hover .moviePoster img {
+    transform: scale(1.05);
+}
+
+.movieInfo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: var(--metin-rengi);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.movieCard:hover .movieInfo {
+    opacity: 1;
+}
+
+.movieTitle {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.removeButton {
+    background-color: #f00;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.removeButton:hover {
+    background-color: #d00;
+}
+
+/* Boyutlandırma Kuralları */
+
+/* 1. Ekstra Küçük Ekranlar (Örnek: Telefonlar) */
+@media (max-width: 576px) {
+    .movieCard {
+        width: 200px;
+        height: 300px;
+        /* Sabit yükseklik */
+    }
+}
+
+/* 2. Orta Ekranlar (Örnek: Tabletler) */
+@media (min-width: 577px) and (max-width: 991px) {
+    .movieCard {
+        width: 250px;
+    }
+
+    .moviePoster {
+        aspect-ratio: 2/3;
+    }
+}
+
+/* 3. Büyük Ekranlar (Örnek: Masaüstü Bilgisayarlar) */
+@media (min-width: 992px) {
+    .movieGrid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 350px));
+    }
+
+    .movieCard {
+        /* Genişlik grid tarafından belirlenir (minmax ile) */
+    }
+
+    .moviePoster {
+        aspect-ratio: 2/3;
+    }
+}

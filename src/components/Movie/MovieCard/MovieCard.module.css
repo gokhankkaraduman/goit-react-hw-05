@@ -1,0 +1,177 @@
+.movie_section {
+    background-color: var(--ana-renk);
+    color: var(--metin-rengi);
+    font-family: var(--roboto-font);
+    padding: 2rem 3rem;
+}
+
+.movie_container {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.movie_list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    row-gap: 32px;
+    margin-top: 48px;
+    width: 100%;
+}
+.title{
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--metin-rengi);
+}
+.movie_item {
+    width: calc((100% - 32px) / 3);
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background-color: var(--ikincil-renk);
+    transition: transform 0.3s ease;
+    position: relative;
+    height: 100%;
+}
+
+.movie_item:hover {
+    transform: scale(1.05);
+}
+
+.movie_poster {
+    width: 100%;
+    height: 0;
+    padding-bottom: 150%;
+    overflow: hidden;
+}
+
+.movie_poster img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.movie_item:hover .movie_poster img {
+    transform: scale(1.1);
+}
+
+.movie_info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: var(--metin-rengi);
+    padding: 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.movie_title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color:var(--metin-rengi);
+}
+
+.movie_details {
+    transition: transform 0.3s ease;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    /* Ya da flex-direction: column; ve align-items: flex-start; gibi farklı bir düzen */
+    max-height: 0;
+    /* Başlangıçta gizle */
+    position: absolute;
+    bottom: 0;
+    transform: translateY(100%);
+    /* Başlangıçta aşağıda */
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.movie_item:hover .movie_details {
+    transform: translateY(0);
+    /* Hoverda yukarı kaydır (görünür yap) */
+    max-height: 100%;
+    /* İçerik kadar yüksekliği ayarla */
+    /* padding: 1rem;  Burada padding olmamalı, zaten yukarıda var */
+}
+.movie_details>div {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.movie_date,
+.movie_rate,
+.movie_genre,
+.movie_lang {
+    font-size: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-transform: capitalize;
+    color: var(--metin-rengi);
+}
+
+
+.movie_details strong {
+    color: var(--vurgu-rengi);
+    font-weight: 600;
+    width: 4rem;
+    flex-shrink: 0;
+}
+.favoriteButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.8rem;
+    /* İkon boyutu */
+    color: gold;
+    /* İkon rengi */
+    transition: transform 0.2s ease-in-out;
+    z-index: 2;
+    /* Diğer öğelerin üzerine çıkmasını sağlar */
+}
+
+.favoriteButton:hover {
+    transform: scale(1.1);
+}
+
+.favoriteIcon {
+    font-size: 1.8rem;
+    color: inherit;
+}
+.favoriteIcon{
+    color:gold;
+}
+
+@media (max-width: 1024px) {
+    .movie_item {
+        width: calc((100% - 16px) / 2);
+    }
+}
+
+@media (max-width: 768px) {
+    .movie_item {
+        width: 100%;
+    }
+}

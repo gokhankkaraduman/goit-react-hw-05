@@ -1,0 +1,39 @@
+.castSection{
+    background-color: var(--ana-renk);
+    color: var(--metin-rengi);
+    font-family: var(--roboto-font);
+    padding: 2rem 3rem;
+}
+.container{
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+}
+.castList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+
+.castItem {
+    background: linear-gradient(to right, var(--ikincil-renk), var(--vurgu-rengi));
+    padding: 10px;
+    width: 250px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    list-style: none;
+}
+
+.castImg {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.castTitle {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+

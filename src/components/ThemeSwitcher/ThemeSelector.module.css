@@ -1,0 +1,54 @@
+.themeSelector {
+    display: flex;
+    /* Butonları yan yana hizala */
+    align-items: center;
+    /* Dikey olarak ortala */
+    gap: 10px;
+    /* Butonlar arasına boşluk bırak */
+}
+
+.themeButton {
+    display: flex;
+    /* İkon ve metni yan yana hizala */
+    align-items: center;
+    /* Dikey olarak ortala */
+    gap: 5px;
+    /* İkon ve metin arasına boşluk bırak */
+    padding: 8px 16px;
+    /* Butonlara padding ekle */
+    border: none;
+    /* Butonların varsayılan border'ını kaldır */
+    background-color: transparent;
+    /* Butonların arka planını transparan yap */
+    cursor: pointer;
+    /* İmleci el yap */
+    border-radius: 5px;
+    /* Köşeleri yuvarla */
+    transition: background-color 0.3s ease;
+    /* Geçiş efekti */
+    color: var(--metin-rengi);
+    /* Metin rengini CSS değişkeni ile ayarla */
+}
+
+.themeButton:hover {
+    background-color: var(--ikincil-renk);
+    /* Hover rengini CSS değişkeni ile ayarla */
+}
+
+.themeIcon {
+    font-size: 1.2rem;
+    /* İkon boyutunu ayarla */
+    color: var(--vurgu-rengi);
+    /* İkon rengini CSS değişkeni ile ayarla */
+}
+
+/* Temalara özel stiller (isteğe bağlı) */
+body.light .themeButton {
+    color: #333;
+    /* Açık temada buton metin rengini değiştir */
+}
+
+body.colorful .themeButton {
+    color: #fff;
+    /* Renkli temada buton metin rengini değiştir */
+}

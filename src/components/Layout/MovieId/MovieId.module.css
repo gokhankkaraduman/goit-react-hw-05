@@ -1,0 +1,186 @@
+.movieSection {
+    background-color: var(--ana-renk);
+    color: var(--metin-rengi);
+    font-family: var(--roboto-font);
+    padding: 2rem 3rem;
+}
+
+.container {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+}
+.vote{
+    margin-top: 3px;
+    padding-left: 15px;
+    padding-right: 15px;
+    white-space: nowrap;
+    float: left;
+    font: 500 15px roboto !important;
+    height: 33px;
+    border-radius: 4px;
+    line-height: 35px !important;
+    text-align: center;
+    box-shadow: none !important;
+    color: #fff;
+    margin-right: 0;
+    text-shadow: none !important;
+    box-shadow: none !important;
+    background: #c89e1d !important;
+}
+.count{
+    background: #e35926;
+    color: #fff;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    height: 33px;
+    padding: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+    font: 400 15px roboto;
+    line-height: 33px;
+    margin-top: 3px;
+    box-shadow: 0 0 2px #cdd7dc;
+}
+.wrapper{
+    display:flex;
+    gap:15px;
+}
+.movieTitle {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.movieContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.movieImage {
+    flex: 1;
+    max-width: 500px;
+}
+
+.image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.movieTrailer {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.trailer {
+    width: 100%;
+    max-width: 800px;
+    height: 100%;
+    border: none;
+}
+
+.movieDetails {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.additionalInfo,
+.overviewSection {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.additionalInfo {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+}
+
+.overviewSection {
+    flex: 2;
+    min-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.infoTitle {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: var(--metin-rengi);
+}
+
+.infoList {
+    list-style: none;
+    padding-left: 0;
+}
+
+.infoItem {
+    margin: 0.5rem 0;
+}
+
+.navLink {
+    text-decoration: none;
+    background: linear-gradient(90deg, #f7a900, #ffdd7f);
+    background-clip: text;
+    color: transparent;
+    padding: 0.25rem 0;
+    font-weight: 500;
+    display: block;
+    font-size: 2rem;
+}
+
+.navLink:hover {
+    background: linear-gradient(90deg, #f7a900, #ffdd7f);
+    background-clip: text;
+    color: transparent;
+}
+
+.overviewTitle {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: var(--metin-rengi);
+}
+
+.overviewText {
+    line-height: 1.6;
+    font-size: 1.125rem;
+    color: var(--metin-rengi);
+}
+.favoriteButton {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    /* İkon boyutunu ayarlayın */
+    color: gold;
+    /* İkon rengini ayarlayın */
+    margin-left: 10px;
+    /* Butonu sağa kaydırın (isteğe bağlı) */
+    transition: transform 0.2s ease-in-out;
+    /* Butona hover efekti ekleyin (isteğe bağlı) */
+}
+
+.favoriteButton:hover {
+    transform: scale(1.1);
+    /* Butonu büyütün (isteğe bağlı) */
+}
+
+.favoriteIcon {
+    /* İkonun boyutunu ve rengini ayarlayın */
+    font-size: 1.5rem;
+    color: inherit;
+    /* Butonun rengini miras alın */
+}

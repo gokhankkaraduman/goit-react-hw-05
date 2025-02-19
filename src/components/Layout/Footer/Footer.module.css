@@ -1,0 +1,64 @@
+.footer {
+    padding: 1.5rem 3rem;
+    background: linear-gradient(135deg, var(--ikincil-renk) 0%, var(--ana-renk) 100%);
+    box-shadow: 0 -9px 15px rgba(0, 0, 0, 0.4);
+    /* Ters yönde gölge */
+    border-top: 3px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--metin-rengi);
+    font-family: var(--roboto-font);
+    font-weight: 600;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.link:hover {
+    color: var(--hover-rengi);
+    transform: scale(1.1);
+}
+
+.text {
+    display: flex;
+    align-items: center;
+    font-family: var(--roboto-font);
+    font-size: 1.2rem;
+}
+
+.icon {
+    margin-left: 1rem;
+    font-size: 1.5rem;
+    color: var(--metin-rengi);
+    transition: transform 0.3s ease;
+}
+
+.copyright {
+    color: var(--metin-rengi);
+    font-family: var(--roboto-font);
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}

@@ -1,0 +1,21 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 3rem;
+    margin-bottom: 20px;
+}
+.title{
+    color: var(--metin-rengi);
+    padding: 1rem 2rem;
+    border-radius: 14px;
+    font-family: var(--roboto-font);
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+}
+.animation{
+    height: 350px;
+    filter:drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.5))
+}

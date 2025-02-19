@@ -1,0 +1,45 @@
+.reviewSection {
+    background-color: var(--ana-renk);
+    color: var(--metin-rengi);
+    font-family: var(--roboto-font);
+    padding: 2rem 3rem;
+}
+
+.container {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+}
+.reviewsList {
+    padding: 20px;
+    background: linear-gradient(to right, var(--vurgu-rengi), var(--ikincil-renk));
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.reviewTitle {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: var(--metin-rengi);
+}
+
+.reviewItem {
+    background: linear-gradient(to right, var(--ikincil-renk), var(--vurgu-rengi));
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    list-style: none;
+}
+
+.reviewAuthor {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: var(--metin-rengi);
+}
+
+.content {
+    font-size: 1rem;
+    color: var(--metin-rengi);
+    line-height: 2rem;
+}

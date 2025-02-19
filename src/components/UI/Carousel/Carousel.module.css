@@ -1,0 +1,171 @@
+.hero_section {
+    background-color: var(--ana-renk);
+    color: var(--metin-rengi);
+    font-family: var(--roboto-font);
+    padding: 1.5rem 3rem;
+}
+
+.hero_container {
+    max-width: 1200px;
+    margin: 3rem auto 0;
+    /* Üstten 3rem boşluk, ortala ve alttan 0 */
+    width: 100%;
+    margin-top: 7rem;
+
+}
+
+.hero_title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    font-family: var(--oswalt-font);
+    color: var(--vurgu-rengi);
+
+}
+
+.carousel {
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel_list {
+    display: flex;
+    transition: transform 0.5s ease;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    width: 100%;
+}
+
+.carousel_item {
+    flex: 0 0 100%;
+    /* Her slayt 100% genişliğinde */
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    /* İçeriği dikey olarak ortala */
+}
+
+.img_wrapper {
+    position: relative;
+    width: 50%;
+    /* Resim ve bilgi eşit oranda yer kaplasın */
+    height: 0;
+    /* Oran korumak için yükseklik 0 */
+    padding-bottom: 56.25%;
+    /* 16:9 en boy oranı */
+    overflow: hidden;
+    border-radius: 10px;
+    border: 2px solid var(--vurgu-rengi);
+}
+
+.img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Resmi konteyner'a sığdır */
+    display: block;
+}
+
+.info_wrapper {
+    width: 50%;
+    /* Resim ve bilgi eşit oranda yer kaplasın */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    /* Boşluğu azalt */
+    justify-content: center;
+    /* İçeriği dikey olarak ortala */
+}
+
+.info_title {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.info_overview {
+    font-size: 1.2rem;
+    /* Boyutu küçült */
+    line-height: 1.6;
+    /* Satır aralığını artır */
+    text-align: justify;
+    /* Metni iki yana yasla */
+}
+
+.carousel_button {
+    position: absolute;
+    top: 95%;
+    /* Dikeyde ortala */
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    /* Yatay padding'i artır */
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 5px;
+    /* Köşeleri yuvarla */
+}
+
+.prev_button {
+    left: 90%;
+    /* Sola yasla */
+}
+
+.next_button {
+    right: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .carousel_item {
+        flex-direction: column;
+        /* Mobil'de dikey hizala */
+        align-items: center;
+        /* Yatayda ortala */
+        gap: 1rem;
+    }
+
+    .img_wrapper {
+        width: 100%;
+        /* Resim tam genişlikte */
+        padding-bottom: 56.25%;
+        /* Oranı koru */
+    }
+
+    .info_wrapper {
+        width: 100%;
+        /* Bilgi tam genişlikte */
+        align-items: center;
+        /* Yatayda ortala */
+    }
+
+    .info_title {
+        text-align: center;
+        /* Başlığı ortala */
+    }
+
+    .info_overview {
+        text-align: left;
+        /* Metni sola hizala */
+    }
+
+    .carousel_button {
+        top: auto;
+        /* Butonları altta konumlandır */
+        bottom: 10px;
+        transform: translateY(0);
+    }
+
+    .prev_button {
+        left: 10px;
+    }
+
+    .next_button {
+        right: 10px;
+    }
+}
