@@ -21,10 +21,12 @@ function App() {
   const [allMovies, setAllMovies] = useState([]);
   const [loadingAllMovies, setLoadingAllMovies] = useState(true);
 
+  // favoriteMovies state'ini güncellediğinde localStorage'ı da güncelle
   useEffect(() => {
     localStorage.setItem('favorites', JSON.stringify(favoriteMovies)); // favoriteMovies değiştiğinde local storage'ı güncelle
   }, [favoriteMovies]);
 
+  // Tüm filmleri çekiyoruz
   useEffect(() => {
     const fetchAllMovies = async () => {
       setLoadingAllMovies(true);
@@ -41,17 +43,40 @@ function App() {
     fetchAllMovies();
   }, []);
 
+  // Favoriye ekleme ve silme işlemleri
   const handleAddToFavorites = (movieId) => {
     const movieIdString = movieId.toString();
 
     setFavoriteMovies(prevFavorites => {
       const isCurrentlyFavorite = prevFavorites.includes(movieIdString);
 
+      let updatedFavorites;
       if (isCurrentlyFavorite) {
-        return prevFavorites.filter(id => id !== movieIdString);
+        // Film zaten favorilerde, çıkarıyoruz
+        updatedFavorites = prevFavorites.filter(id => id !== movieIdString);
       } else {
-        return [...prevFavorites, movieIdString];
+        // Film favorilere ekleniyor
+        updatedFavorites = [...prevFavorites, movieIdString];
       }
+
+      // `localStorage`'ı güncelle
+      localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+
+      return updatedFavorites;
+    });
+  };
+
+  // Favoriden silme işlemi
+  const handleRemoveFromFavorites = (movieId) => {
+    const movieIdString = movieId.toString();
+
+    setFavoriteMovies(prevFavorites => {
+      const updatedFavorites = prevFavorites.filter(id => id !== movieIdString);
+
+      // `localStorage`'ı güncelle
+      localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+
+      return updatedFavorites;
     });
   };
 
@@ -72,7 +97,7 @@ function App() {
             <Route path="/library" element={<MyLibrary
               favoriteMovies={favoriteMovies}
               loading={loadingAllMovies} 
-              onRemoveFromFavorites={handleAddToFavorites} 
+              onRemoveFromFavorites={handleRemoveFromFavorites} 
             />} />
             <Route path="/movies/:id" element={<MovieId onAddToFavorites={handleAddToFavorites} favoriteMovies={favoriteMovies} />} />
             <Route path="/movies" element={<Movie movies={allMovies} loading={loadingAllMovies} onAddToFavorites={handleAddToFavorites} favoriteMovies={favoriteMovies} />} />

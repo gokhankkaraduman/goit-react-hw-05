@@ -21,8 +21,8 @@
 .movieGrid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    /* Varsayılan grid yapısı */
     gap: 1rem;
+    justify-content: center;
 }
 
 .movieCard {
@@ -98,7 +98,13 @@
 .removeButton:hover {
     background-color: #d00;
 }
-
+.empty{
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--metin-rengi);
+    text-align: center;
+}
 /* Boyutlandırma Kuralları */
 
 /* 1. Ekstra Küçük Ekranlar (Örnek: Telefonlar) */

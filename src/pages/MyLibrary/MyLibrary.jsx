@@ -42,23 +42,26 @@ function MyLibrary({ favoriteMovies: favoriteMovieIds, loading: allMoviesLoading
             <div className={css.myLibraryContainer}>
                 <h2 className={css.myLibraryTitle}>My Library</h2>
                 <div className={css.movieGrid}>
-                    {favoriteMovies.map((movie) => (
-                        <div key={movie.id} className={css.movieCard}> {/* movieCard class'ını kullandık */}
-                            <div className={css.moviePoster}>
-                                <img
-                                    src={`${IMG_BASE_URL}${ENDPOINTS.IMG_W500}${movie.poster_path}`}
-                                    alt={movie.title}
-                                />
+                    {favoriteMovies.length === 0 ? (
+                        <p className={css.empty}>Your library is empty.</p>
+                    ) : (
+                        favoriteMovies.map((movie) => (
+                            <div key={movie.id} className={css.movieCard}>
+                                <div className={css.moviePoster}>
+                                    <img
+                                        src={`${IMG_BASE_URL}${ENDPOINTS.IMG_W500}${movie.poster_path}`}
+                                        alt={movie.title}
+                                    />
+                                </div>
+                                <div className={css.movieInfo}>
+                                    <h3 className={css.movieTitle}>{movie.title}</h3>
+                                    <button className={css.removeButton} onClick={() => onRemoveFromFavorites(movie.id)}>
+                                        Remove
+                                    </button>
+                                </div>
                             </div>
-                            <div className={css.movieInfo}>
-                                <h3 className={css.movieTitle}>{movie.title}</h3>
-                                <button className={css.removeButton} onClick={() => onRemoveFromFavorites(movie.id)}>
-                                    Remove
-                                </button>
-                            </div>
-                        </div>
-                    ))}
-                    {favoriteMovies.length === 0 && <p>Your library is empty.</p>}
+                        ))
+                    )}
                 </div>
             </div>
         </section>
