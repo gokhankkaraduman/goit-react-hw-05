@@ -41,13 +41,13 @@ This project utilizes modern web development technologies:
 
 <div style="display: flex; justify-content: space-around;">
   <div style="flex: 1;">
-    <img src="./src/assets/images/homepage.pngpng" alt="Ekran Görüntüsü 1" style="width: 100%; height: auto;">
+    <img src="./src/assets/images/homepage.png" alt="Ekran Görüntüsü 1" style="width: 100%; height: auto;">
   </div>
   <div style="flex: 1;">
     <img src="./src/assets/images/searchpage.png" alt="Ekran Görüntüsü 2" style="width: 100%; height: auto;">
   </div>
   <div style="flex: 1;">
-    <img src="./src/assets/images/librarypage.pngpng" alt="Ekran Görüntüsü 3" style="width: 100%; height: auto;">
+    <img src="./src/assets/images/librarypage.png" alt="Ekran Görüntüsü 3" style="width: 100%; height: auto;">
   </div>
 </div>
 
