@@ -39,16 +39,23 @@ This project utilizes modern web development technologies:
 
 ## Screenshots
 
-<div style="display: flex; justify-content: space-between; gap: 10px; max-width: 900px; margin: 0 auto;">  <div style="flex: 1; text-align: center;">
-    <a href="./src/assets/images/homepage.png" target="_blank"> <img src="./src/assets/images/homepage.png" alt="Homepage" style="width: 100%; max-width: 250px; height: auto; border-radius: 8px; box-shadow: 2px 2px 5px rgba(0,0,0,0.3);"> </a>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
+  <div style="flex: 1 0 300px; text-align: center;">
+    <a href="./src/assets/images/homepage.png" target="_blank">
+      <img src="./src/assets/images/homepage.png" alt="Homepage" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 2px 2px 5px rgba(0,0,0,0.3);">
+    </a>
     <p style="font-size: 14px; margin: 5px 0 0 0;">Homepage</p>
   </div>
-  <div style="flex: 1; text-align: center;">
-    <a href="./src/assets/images/searchpage.png" target="_blank"><img src="./src/assets/images/searchpage.png" alt="Search Page" style="width: 100%; max-width: 250px; height: auto; border-radius: 8px; box-shadow: 2px 2px 5px rgba(0,0,0,0.3);"> </a>
+  <div style="flex: 1 0 300px; text-align: center;">
+    <a href="./src/assets/images/searchpage.png" target="_blank">
+      <img src="./src/assets/images/searchpage.png" alt="Search Page" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 2px 2px 5px rgba(0,0,0,0.3);">
+    </a>
     <p style="font-size: 14px; margin: 5px 0 0 0;">Search Page</p>
   </div>
-  <div style="flex: 1; text-align: center;">
-    <a href="./src/assets/images/librarypage.png" target="_blank"><img src="./src/assets/images/librarypage.png" alt="Library Page" style="width: 100%; max-width: 250px; height: auto; border-radius: 8px; box-shadow: 2px 2px 5px rgba(0,0,0,0.3);"> </a>
+  <div style="flex: 1 0 300px; text-align: center;">
+    <a href="./src/assets/images/librarypage.png" target="_blank">
+      <img src="./src/assets/images/librarypage.png" alt="Library Page" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 2px 2px 5px rgba(0,0,0,0.3);">
+    </a>
     <p style="font-size: 14px; margin: 5px 0 0 0;">Library Page</p>
   </div>
 </div>
