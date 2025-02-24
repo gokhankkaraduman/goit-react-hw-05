@@ -183,4 +183,94 @@
     font-size: 1.5rem;
     color: inherit;
     /* Butonun rengini miras alın */
+}@media (max-width: 1024px) {
+    .movieDetails {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .additionalInfo,
+    .overviewSection {
+        min-width: 100%;
+    }
+
+    .movieImage {
+        max-width: 100%;
+    }
+
+    .movieTrailer {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1.5rem;
+    }
+
+    .movieTitle {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .movieContainer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .movieImage {
+        max-width: 100%;
+    }
+
+    .movieTrailer {
+        width: 100%;
+    }
+
+    .trailer {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .movieDetails {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .additionalInfo,
+    .overviewSection {
+        min-width: 100%;
+        text-align: center;
+    }
+
+    .infoList {
+        padding: 0;
+    }
+
+    .navLink {
+        font-size: 1.5rem;
+    }
+
+    .overviewTitle {
+        font-size: 1.8rem;
+    }
+
+    .overviewText {
+        font-size: 1rem;
+    }
+
+    .vote,
+    .count {
+        font-size: 0.9rem;
+        padding: 10px;
+        height: auto;
+    }
+
+    .favoriteButton {
+        font-size: 1.3rem;
+    }
+
+    .wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
 }

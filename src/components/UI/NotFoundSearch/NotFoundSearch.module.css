@@ -1,12 +1,15 @@
-.container{
+.container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 2rem 3rem;
     margin-bottom: 20px;
+    margin-top:200px;
 }
-.title{
+
+/* Başlık stilleri */
+.title {
     color: var(--metin-rengi);
     padding: 1rem 2rem;
     border-radius: 14px;
@@ -15,7 +18,41 @@
     font-size: 1.2rem;
     margin-bottom: 40px;
 }
-.animation{
+
+/* Animasyon bölümü */
+.animation {
     height: 350px;
-    filter:drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.5))
+    filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.5));
+}
+
+/* Medya sorguları */
+@media (max-width: 1024px) {
+    .container {
+        padding: 1rem 2rem;
+    }
+
+    .title {
+        font-size: 1.1rem;
+        padding: 1rem;
+    }
+
+    .animation {
+        height: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+        margin-bottom: 10px;
+    }
+
+    .title {
+        font-size: 1rem;
+        padding: 0.8rem;
+    }
+
+    .animation {
+        height: 200px;
+    }
 }

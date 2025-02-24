@@ -20,7 +20,7 @@ function App() {
   const [favoriteMovies, setFavoriteMovies] = useState(JSON.parse(localStorage.getItem('favorites')) || []);
   const [allMovies, setAllMovies] = useState([]);
   const [loadingAllMovies, setLoadingAllMovies] = useState(true);
-
+  const showCarousel = location.pathname === "/";
   // favoriteMovies state'ini güncellediğinde localStorage'ı da güncelle
   useEffect(() => {
     localStorage.setItem('favorites', JSON.stringify(favoriteMovies)); // favoriteMovies değiştiğinde local storage'ı güncelle
@@ -84,7 +84,7 @@ function App() {
     <ThemeProvider>
       <>
         <Header />
-        <Carousel />
+        {showCarousel && <Carousel />}
         <Suspense fallback={<Loading />}>
           <Routes>
             <Route path="/" element={<Home
@@ -99,10 +99,12 @@ function App() {
               loading={loadingAllMovies} 
               onRemoveFromFavorites={handleRemoveFromFavorites} 
             />} />
-            <Route path="/movies/:id" element={<MovieId onAddToFavorites={handleAddToFavorites} favoriteMovies={favoriteMovies} />} />
+
             <Route path="/movies" element={<Movie movies={allMovies} loading={loadingAllMovies} onAddToFavorites={handleAddToFavorites} favoriteMovies={favoriteMovies} />} />
-            <Route path="/movies/:id/cast" element={<MovieCast onAddToFavorites={handleAddToFavorites} favoriteMovies={favoriteMovies} />} />
-            <Route path="/movies/:id/reviews" element={<MovieReview onAddToFavorites={handleAddToFavorites} favoriteMovies={favoriteMovies} />} />
+            <Route path="/movies/:id" element={<MovieId onAddToFavorites={handleAddToFavorites} favoriteMovies={favoriteMovies} />}>
+              <Route path="cast" element={<MovieCast onAddToFavorites={handleAddToFavorites} favoriteMovies={favoriteMovies} />} />
+              <Route path="reviews" element={<MovieReview onAddToFavorites={handleAddToFavorites} favoriteMovies={favoriteMovies} />} />
+            </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>

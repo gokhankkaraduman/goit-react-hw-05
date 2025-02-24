@@ -1,21 +1,27 @@
+/* Genel Header Stili */
 .header {
     position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     padding: 1.5rem 3rem;
     background: linear-gradient(135deg, var(--ikincil-renk) 0%, var(--ana-renk) 100%);
     box-shadow: 0 9px 15px rgba(0, 0, 0, 0.4);
     border-bottom: 3px solid rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(12px);
     z-index: 1000;
-    width: 100%;
 }
-.container{
-    margin: 0 auto;
-    width: 100%;
-    max-width: 1200px;
+
+/* Header İç Yapısı */
+.container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
+
+/* Logo */
 .logo {
     display: flex;
     align-items: center;
@@ -33,27 +39,19 @@
     transform: scale(1.1);
 }
 
-.logo:hover>.icon {
-    transform: rotate(20deg) scale(1.2);
+/* Menü Stili */
+.nav {
+    display: flex;
+    align-items: center;
 }
 
-.icon {
-    margin-right: 1rem;
-    font-size: 2.5rem;
-    color: var(--metin-rengi);
-    transition: transform 0.3s ease;
-}
-
-.icon:hover {
-    transform: rotate(20deg) scale(1.2);
-}
-
+/* Menü Liste */
 .list {
+    display: flex;
+    gap: 2.5rem;
     list-style: none;
     margin: 0;
     padding: 0;
-    display: flex;
-    gap: 2.5rem;
 }
 
 .item {
@@ -78,18 +76,82 @@
     backdrop-filter: blur(6px);
 }
 
-.btn {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 2.2rem;
-    color: var(--metin-rengi);
-    padding: 0.8rem;
-    border-radius: 14px;
-    transition: all 0.3s ease;
+/* Theme Selector - Masaüstünde Menü Dışında (Sağ Üstte) */
+.themeDesktop {
+    display: block;
 }
 
-.btn:hover {
-    color: var(--hover-rengi);
+/* Theme Selector - Mobilde Menü İçinde */
+.themeMobile {
+    display: none;
+}
+
+/* Hamburger Menü Butonu */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--metin-rengi);
+    font-size: 2.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.hamburger:hover {
     transform: scale(1.1);
+}
+
+/* Mobil (Responsive) Stiller */
+@media (max-width: 768px) {
+
+    /* Menü Kapalıyken */
+    .nav {
+        position: absolute;
+        top: 5rem;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.9);
+        backdrop-filter: blur(12px);
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Menü Açıkken */
+    .nav.open {
+        transform: translateX(0);
+    }
+
+    .list {
+        flex-direction: column;
+        text-align: center;
+        gap: 3rem;
+    }
+    .logo{
+        font-size: 2rem;
+    }
+
+    .link {
+        font-size: 1.8rem;
+        padding: 1rem;
+    }
+
+    /* Hamburger Butonu - Mobilde Görünsün */
+    .hamburger {
+        display: block;
+    }
+
+    /* Theme Selector - Mobilde Menü İçinde */
+    .themeDesktop {
+        display: none;
+    }
+
+    .themeMobile {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
 }

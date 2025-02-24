@@ -1,9 +1,28 @@
-.container{
+.container {
     margin: 0 auto;
     width: 100%;
     max-width: 1200px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin:100px;
+    margin: 100px;
+}
+
+/* Medya sorguları */
+@media (max-width: 1024px) {
+    .container {
+        margin: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        margin: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        margin: 15px;
+    }
 }

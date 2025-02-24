@@ -1,10 +1,17 @@
-.section{
+.section {
     background-color: var(--ana-renk);
     color: var(--metin-rengi);
     font-family: var(--roboto-font);
     padding: 2rem 3rem;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
 }
-.container{
+
+/* Container */
+.container {
     margin: 0 auto;
     width: 100%;
     max-width: 1200px;
@@ -12,7 +19,56 @@
     justify-content: center;
     align-items: center;
 }
-.animation{
-    width: 70%;
-    height: 70%;
+
+/* Animasyon boyutu */
+.animation {
+    width: 100%;
+    /* Orantılı genişlik */
+    height: auto;
+    /* Yükseklik genişliğe orantılı olacak şekilde */
+    max-width: 700px;
+    /* Maksimum genişlik */
+    max-height: 700px;
+    /* Maksimum yükseklik */
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .animation {
+        width: 70%;
+        /* Daha büyük ekranlarda genişlik */
+    }
+}
+
+@media (max-width: 992px) {
+    .animation {
+        width: 100%;
+        /* Orta boyutlu ekranlar için */
+    }
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 1.5rem 2rem;
+    }
+
+    .animation {
+        width: 100%;
+        /* Küçük ekranlar için daha geniş */
+
+        /* Ekran boyutuna göre daraltma */
+    }
+}
+
+@media (max-width: 480px) {
+    .section {
+        padding: 1rem;
+    }
+
+    .animation {
+        width: 100%;
+        /* Mobil ekranlar için genişlik */
+        max-width: 300px;
+        /* Mobilde boyut küçültme */
+    }
 }

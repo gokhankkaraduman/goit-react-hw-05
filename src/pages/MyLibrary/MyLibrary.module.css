@@ -98,26 +98,39 @@
 .removeButton:hover {
     background-color: #d00;
 }
-.empty{
+
+.empty {
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 1rem;
     color: var(--metin-rengi);
     text-align: center;
 }
+
 /* Boyutlandırma Kuralları */
 
 /* 1. Ekstra Küçük Ekranlar (Örnek: Telefonlar) */
 @media (max-width: 576px) {
+    .myLibraryTitle {
+        font-size: 1.5rem;
+    }
+
     .movieCard {
-        width: 200px;
+        width: 100%;
         height: 300px;
-        /* Sabit yükseklik */
+    }
+
+    .moviePoster {
+        aspect-ratio: 2/3;
     }
 }
 
 /* 2. Orta Ekranlar (Örnek: Tabletler) */
 @media (min-width: 577px) and (max-width: 991px) {
+    .myLibraryTitle {
+        font-size: 1.75rem;
+    }
+
     .movieCard {
         width: 250px;
     }
@@ -134,7 +147,7 @@
     }
 
     .movieCard {
-        /* Genişlik grid tarafından belirlenir (minmax ile) */
+        width: auto;
     }
 
     .moviePoster {

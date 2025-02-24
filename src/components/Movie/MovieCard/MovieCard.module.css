@@ -19,12 +19,14 @@
     margin-top: 48px;
     width: 100%;
 }
-.title{
+
+.title {
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
     color: var(--metin-rengi);
 }
+
 .movie_item {
     width: calc((100% - 32px) / 3);
     display: flex;
@@ -81,7 +83,7 @@
     font-size: 1.2rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
-    color:var(--metin-rengi);
+    color: var(--metin-rengi);
 }
 
 .movie_details {
@@ -89,13 +91,10 @@
     overflow: hidden;
     display: flex;
     justify-content: space-between;
-    /* Ya da flex-direction: column; ve align-items: flex-start; gibi farklı bir düzen */
     max-height: 0;
-    /* Başlangıçta gizle */
     position: absolute;
     bottom: 0;
     transform: translateY(100%);
-    /* Başlangıçta aşağıda */
     left: 0;
     width: 100%;
     z-index: 1;
@@ -106,11 +105,9 @@
 
 .movie_item:hover .movie_details {
     transform: translateY(0);
-    /* Hoverda yukarı kaydır (görünür yap) */
     max-height: 100%;
-    /* İçerik kadar yüksekliği ayarla */
-    /* padding: 1rem;  Burada padding olmamalı, zaten yukarıda var */
 }
+
 .movie_details>div {
     display: flex;
     align-items: center;
@@ -129,13 +126,13 @@
     color: var(--metin-rengi);
 }
 
-
 .movie_details strong {
     color: var(--vurgu-rengi);
     font-weight: 600;
     width: 4rem;
     flex-shrink: 0;
 }
+
 .favoriteButton {
     position: absolute;
     top: 10px;
@@ -144,12 +141,9 @@
     border: none;
     cursor: pointer;
     font-size: 1.8rem;
-    /* İkon boyutu */
     color: gold;
-    /* İkon rengi */
     transition: transform 0.2s ease-in-out;
     z-index: 2;
-    /* Diğer öğelerin üzerine çıkmasını sağlar */
 }
 
 .favoriteButton:hover {
@@ -160,18 +154,43 @@
     font-size: 1.8rem;
     color: inherit;
 }
-.favoriteIcon{
-    color:gold;
+
+.favoriteIcon {
+    color: gold;
 }
 
+/* Responsive Design */
 @media (max-width: 1024px) {
     .movie_item {
         width: calc((100% - 16px) / 2);
+    }
+
+    .movie_details {
+        flex-direction: column;
+        gap: 0.5rem;
     }
 }
 
 @media (max-width: 768px) {
     .movie_item {
         width: 100%;
+    }
+
+    .movie_details {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .movie_info {
+        position: static;
+        background-color: rgba(0, 0, 0, 0.6);
+        padding: 1rem;
+    }
+
+    .favoriteButton {
+        position: relative;
+        top: 0;
+        right: 0;
+        font-size: 1.6rem;
     }
 }

@@ -5,6 +5,7 @@ import Loading from '../../UI/Loading/Loading.jsx';
 import css from "./MovieId.module.css";
 import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
 
+
 function MovieId() {
     const { id } = useParams();
     const navigate = useNavigate();
@@ -119,7 +120,7 @@ function MovieId() {
                     </div>
                 </div>
             </div>
-            <Outlet context={{ cast, reviews }} key={id} />
+            <Outlet context={{ cast:cast, reviews }} key={id} />
         </section>
     );
 }

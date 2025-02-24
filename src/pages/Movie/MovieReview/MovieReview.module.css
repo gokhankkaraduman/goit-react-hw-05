@@ -10,6 +10,7 @@
     width: 100%;
     max-width: 1200px;
 }
+
 .reviewsList {
     padding: 20px;
     background: linear-gradient(to right, var(--vurgu-rengi), var(--ikincil-renk));
@@ -30,6 +31,10 @@
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     list-style: none;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .reviewAuthor {
@@ -42,4 +47,91 @@
     font-size: 1rem;
     color: var(--metin-rengi);
     line-height: 2rem;
+}
+img{
+    border: 3px solid var(--metin-rengi);
+    margin-bottom:20px;
+    border-radius: 10px;
+}
+/* Responsive Design */
+
+/* 1. Ekstra Küçük Ekranlar (Örnek: Telefonlar) */
+@media (max-width: 576px) {
+    .reviewSection {
+        padding: 1.5rem 2rem;
+    }
+
+    .reviewTitle {
+        font-size: 1.2rem;
+    }
+
+    .reviewsList {
+        padding: 15px;
+    }
+
+    .reviewItem {
+        padding: 12px;
+    }
+
+    .reviewAuthor {
+        font-size: 1rem;
+    }
+
+    .content {
+        font-size: 0.9rem;
+    }
+}
+
+/* 2. Orta Ekranlar (Örnek: Tabletler) */
+@media (min-width: 577px) and (max-width: 991px) {
+    .reviewSection {
+        padding: 1.5rem 2.5rem;
+    }
+
+    .reviewTitle {
+        font-size: 1.4rem;
+    }
+
+    .reviewsList {
+        padding: 18px;
+    }
+
+    .reviewItem {
+        padding: 14px;
+    }
+
+    .reviewAuthor {
+        font-size: 1.1rem;
+    }
+
+    .content {
+        font-size: 1rem;
+    }
+}
+
+/* 3. Büyük Ekranlar (Örnek: Masaüstü Bilgisayarlar) */
+@media (min-width: 992px) {
+    .reviewSection {
+        padding: 2rem 3rem;
+    }
+
+    .reviewTitle {
+        font-size: 1.5rem;
+    }
+
+    .reviewsList {
+        padding: 20px;
+    }
+
+    .reviewItem {
+        padding: 15px;
+    }
+
+    .reviewAuthor {
+        font-size: 1.2rem;
+    }
+
+    .content {
+        font-size: 1rem;
+    }
 }

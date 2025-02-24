@@ -1,20 +1,21 @@
-.castSection{
+.castSection {
     background-color: var(--ana-renk);
     color: var(--metin-rengi);
     font-family: var(--roboto-font);
     padding: 2rem 3rem;
 }
-.container{
+
+.container {
     margin: 0 auto;
     width: 100%;
     max-width: 1200px;
 }
+
 .castList {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 30px;
 }
-
 
 .castItem {
     background: linear-gradient(to right, var(--ikincil-renk), var(--vurgu-rengi));
@@ -37,3 +38,67 @@
     margin-bottom: 5px;
 }
 
+/* Responsive Design */
+
+/* 1. Ekstra Küçük Ekranlar (Örnek: Telefonlar) */
+@media (max-width: 576px) {
+    .castSection {
+        padding: 1.5rem 2rem;
+    }
+
+    .castList {
+        grid-template-columns: 1fr;
+        /* Tek sütun */
+        gap: 20px;
+    }
+
+    .castItem {
+        width: 100%;
+        padding: 12px;
+    }
+
+    .castTitle {
+        font-size: 1rem;
+    }
+}
+
+/* 2. Orta Ekranlar (Örnek: Tabletler) */
+@media (min-width: 577px) and (max-width: 991px) {
+    .castSection {
+        padding: 1.5rem 2.5rem;
+    }
+
+    .castList {
+        grid-template-columns: repeat(2, 1fr);
+        /* İki sütun */
+        gap: 25px;
+    }
+
+    .castItem {
+        width: auto;
+    }
+
+    .castTitle {
+        font-size: 1.1rem;
+    }
+}
+
+/* 3. Büyük Ekranlar (Örnek: Masaüstü Bilgisayarlar) */
+@media (min-width: 992px) {
+    .castSection {
+        padding: 2rem 3rem;
+    }
+
+    .castList {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 30px;
+    }
+
+    .castItem {
+        width: 250px;
+    }
+
+    .castTitle {
+        font-size: 1.2rem;
+    }
+}
