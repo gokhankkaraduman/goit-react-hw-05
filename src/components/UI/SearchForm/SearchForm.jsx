@@ -1,13 +1,13 @@
 import { Formik, Field, Form } from "formik";
 import { useSearchParams, useNavigate, Link } from "react-router";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { fetchMovies, ENDPOINTS, BASE_URL, IMG_BASE_URL } from "../../../services/api";
 import css from './SearchForm.module.css';
-import Loading from '../Loading/Loading.jsx'
+import Loading from '../Loading/Loading.jsx';
 import NotFoundSearch from "../../UI/NotFoundSearch/NotFoundSearch.jsx";
 import { MdClear } from "react-icons/md";
 
-function SearchForm() {
+function SearchForm({ onMoviesReceived }) {
     const [searchParams, setSearchParams] = useSearchParams();
     const navigate = useNavigate();
     const initialQuery = searchParams.get("query") || "";
@@ -32,33 +32,36 @@ function SearchForm() {
         fetchGenres();
     }, []);
 
-    useEffect(() => {
-        const handleFetch = async (query, page) => {
-            setLoading(true);
-            setError(null);
-            try {
-                const data = await fetchMovies(BASE_URL, ENDPOINTS.SEARCH_MOVIES, { query, page });
-                if (data && data.results && Array.isArray(data.results)) {
-                    setTotalPages(data.total_pages);
-                    setMovies(data.results);
-                } else {
-                    setMovies([]);
-                }
-            } catch (err) {
-                console.error("Error fetching movies:", err);
+    // Arama fonksiyonunu useCallback ile memoize et
+    const handleFetch = useCallback(async (query, page) => {
+        setLoading(true);
+        setError(null);
+        try {
+            const data = await fetchMovies(BASE_URL, ENDPOINTS.SEARCH_MOVIES, { query, page });
+            if (data && data.results && Array.isArray(data.results)) {
+                setTotalPages(data.total_pages);
+                setMovies(data.results);
+            } else {
                 setMovies([]);
-                setError(err.message);
-            } finally {
-                setLoading(false);
             }
-        };
+        } catch (err) {
+            console.error("Error fetching movies:", err);
+            setMovies([]);
+            setError(err.message);
+        } finally {
+            setLoading(false);
+        }
+        onMoviesReceived(movies, loading, error, query);
+    }, [onMoviesReceived]);
 
+    useEffect(() => {
         if (query) {
             handleFetch(query, page);
         } else {
             setMovies([]);
+            onMoviesReceived([], false, null, "");
         }
-    }, [query, page]);
+    }, [query, page, handleFetch]);
 
     useEffect(() => {
         setPage(Number(searchParams.get("page")) || 1);
@@ -66,7 +69,7 @@ function SearchForm() {
 
     const handlePageChange = (pageNumber) => {
         if (pageNumber >= 1 && pageNumber <= totalPages) {
-            setPage(pageNumber)
+            setPage(pageNumber);
             setSearchParams({ query, page: pageNumber });
         }
     };
@@ -141,6 +144,7 @@ function SearchForm() {
         setMovies([]);
         setFieldValue("search", "");
         navigate("/movies");
+        onMoviesReceived([], false, null, ""); // Query temizlendiğinde MovieCard geri gelecek
     };
 
     return (

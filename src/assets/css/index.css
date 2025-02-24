@@ -20,10 +20,8 @@
 body{
     background-color: var(--ana-renk);
 }
-
-
 footer {
-    position: fixed;
+    position: sticky;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -31,6 +29,6 @@ footer {
     color: white;
     padding: 1rem;
     text-align: center;
-    z-index: 1000;
-    /* Footer'ın üstte görünmesini sağlamak için */
+    z-index: 10;
+    /* Diğer içeriklerin üzerine çıkmaması için */
 }

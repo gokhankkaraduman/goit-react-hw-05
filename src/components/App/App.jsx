@@ -1,10 +1,11 @@
 import { Suspense, lazy, useState, useEffect } from 'react';
+import { useLocation } from 'react-router'; // Konumu almak için
 import './App.css';
 import { ThemeProvider } from '../../hooks/ThemeContext.jsx';
 import Header from '../Layout/Header/Header.jsx';
 import Carousel from '../UI/Carousel/Carousel.jsx';
 import Footer from '../Layout/Footer/Footer.jsx';
-import { Routes, Route } from 'react-router'; 
+import { Routes, Route } from 'react-router';
 import { IMG_BASE_URL, ENDPOINTS, BASE_URL, fetchMovies } from '../../services/api.js';
 
 const Home = lazy(() => import('../../pages/Home/Home.jsx'));
@@ -17,10 +18,19 @@ const Loading = lazy(() => import('../UI/Loading/Loading.jsx'));
 const MyLibrary = lazy(() => import('../../pages/MyLibrary/MyLibrary.jsx'));
 
 function App() {
+  const location = useLocation(); // Mevcut yolu almak için
   const [favoriteMovies, setFavoriteMovies] = useState(JSON.parse(localStorage.getItem('favorites')) || []);
   const [allMovies, setAllMovies] = useState([]);
   const [loadingAllMovies, setLoadingAllMovies] = useState(true);
-  const showCarousel = location.pathname === "/";
+
+  // Carousel'ın görünmesini istediğimiz yolları tanımlıyoruz
+  const showCarouselPaths = ['/', '/library', '/movies', '/movies/:id', '/movies/:id/cast', '/movies/:id/reviews'];
+
+  // Carousel'ın görünüp görünmeyeceğini kontrol ediyoruz
+  const showCarousel = showCarouselPaths.some(path => 
+    path === location.pathname || location.pathname.startsWith('/movies/') // Dinamik yollar için
+  );
+
   // favoriteMovies state'ini güncellediğinde localStorage'ı da güncelle
   useEffect(() => {
     localStorage.setItem('favorites', JSON.stringify(favoriteMovies)); // favoriteMovies değiştiğinde local storage'ı güncelle
@@ -96,14 +106,28 @@ function App() {
 
             <Route path="/library" element={<MyLibrary
               favoriteMovies={favoriteMovies}
-              loading={loadingAllMovies} 
-              onRemoveFromFavorites={handleRemoveFromFavorites} 
+              loading={loadingAllMovies}
+              onRemoveFromFavorites={handleRemoveFromFavorites}
             />} />
 
-            <Route path="/movies" element={<Movie movies={allMovies} loading={loadingAllMovies} onAddToFavorites={handleAddToFavorites} favoriteMovies={favoriteMovies} />} />
-            <Route path="/movies/:id" element={<MovieId onAddToFavorites={handleAddToFavorites} favoriteMovies={favoriteMovies} />}>
-              <Route path="cast" element={<MovieCast onAddToFavorites={handleAddToFavorites} favoriteMovies={favoriteMovies} />} />
-              <Route path="reviews" element={<MovieReview onAddToFavorites={handleAddToFavorites} favoriteMovies={favoriteMovies} />} />
+            <Route path="/movies" element={<Movie
+              movies={allMovies}
+              loading={loadingAllMovies}
+              onAddToFavorites={handleAddToFavorites}
+              favoriteMovies={favoriteMovies}
+            />} />
+            <Route path="/movies/:id" element={<MovieId
+              onAddToFavorites={handleAddToFavorites}
+              favoriteMovies={favoriteMovies}
+            />}>
+              <Route path="cast" element={<MovieCast
+                onAddToFavorites={handleAddToFavorites}
+                favoriteMovies={favoriteMovies}
+              />} />
+              <Route path="reviews" element={<MovieReview
+                onAddToFavorites={handleAddToFavorites}
+                favoriteMovies={favoriteMovies}
+              />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>

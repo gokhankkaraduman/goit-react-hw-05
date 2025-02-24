@@ -1,64 +1,151 @@
 .footer {
-    padding: 1.5rem 3rem;
+    padding: 1rem 2rem;
+    /* Daha küçük padding */
     background: linear-gradient(135deg, var(--ikincil-renk) 0%, var(--ana-renk) 100%);
-    box-shadow: 0 -9px 15px rgba(0, 0, 0, 0.4);
-    /* Ters yönde gölge */
-    border-top: 3px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(12px);
+    box-shadow: 0 -6px 10px rgba(0, 0, 0, 0.3);
+    /* Daha hafif gölge */
+    border-top: 2px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    /* Blur efektini hafiflet */
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
+/* .container genişliği */
 .container {
     margin: 0 auto;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1024px;
+    /* Daha dar max-width */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+/* .content içeriği */
 .content {
     display: flex;
     align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
+/* Linkler */
 .link {
     display: flex;
     align-items: center;
     text-decoration: none;
     color: var(--metin-rengi);
     font-family: var(--roboto-font);
-    font-weight: 600;
-    font-size: 1.2rem;
+    font-weight: 500;
+    /* Fontu biraz daha hafif yap */
+    font-size: 1rem;
+    /* Küçük ekranlar için uygun boyut */
     transition: all 0.3s ease;
+    margin: 0 0.5rem;
+    /* Bağlantılar arasında daha az mesafe */
 }
 
 .link:hover {
     color: var(--hover-rengi);
-    transform: scale(1.1);
+    transform: scale(1.05);
+    /* Hover'da daha hafif büyüme */
 }
 
+/* Yazı kısmı */
 .text {
     display: flex;
     align-items: center;
     font-family: var(--roboto-font);
-    font-size: 1.2rem;
+    font-size: 1rem;
+    /* Yazıyı da küçült */
+    margin-top: 0.5rem;
+    /* Yazı ile diğer elemanlar arasına az boşluk */
 }
 
+/* Icon stilini küçültme */
 .icon {
-    margin-left: 1rem;
-    font-size: 1.5rem;
+    margin-left: 0.5rem;
+    font-size: 1.2rem;
+    /* Küçük ikon boyutu */
     color: var(--metin-rengi);
     transition: transform 0.3s ease;
 }
 
+/* Copyright yazısı */
 .copyright {
     color: var(--metin-rengi);
     font-family: var(--roboto-font);
-    font-size: 1.2rem;
-    margin-top: 1rem;
+    font-size: 1rem;
+    /* Copyright boyutunu küçült */
+    margin-top: 0.5rem;
+    /* Yukarıdan daha az boşluk */
+    text-align: center;
+    /* Merkezde hizalama */
+}
+
+/* Mobil uyumluluk için responsive tasarım */
+@media (max-width: 768px) {
+    .footer {
+        padding: 0.8rem 1.5rem;
+        /* Daha küçük padding */
+    }
+
+    .container {
+        padding: 0 1rem;
+        /* Container kenar boşlukları */
+    }
+
+    .link {
+        font-size: 0.95rem;
+        /* Link fontunu biraz daha küçük yap */
+        margin: 0.3rem 0;
+    }
+
+    .text {
+        font-size: 0.95rem;
+        /* Yazı fontunu küçült */
+    }
+
+    .icon {
+        font-size: 1.1rem;
+        /* İkon boyutunu biraz daha küçült */
+    }
+
+    .copyright {
+        font-size: 0.95rem;
+        /* Copyright fontunu biraz küçült */
+    }
+}
+
+@media (max-width: 480px) {
+    .footer {
+        padding: 0.5rem;
+        /* Çok küçük ekranlar için padding */
+    }
+
+    .link {
+        font-size: 0.85rem;
+        /* Çok küçük ekranlar için font boyutunu küçült */
+        margin: 0.2rem 0;
+    }
+
+    .text {
+        font-size: 0.85rem;
+        /* Yazı fontunu da küçült */
+    }
+
+    .icon {
+        font-size: 1rem;
+        /* İkon boyutunu küçült */
+    }
+
+    .copyright {
+        font-size: 0.85rem;
+        /* Copyright fontunu küçült */
+    }
 }
