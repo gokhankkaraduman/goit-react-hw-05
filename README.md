@@ -39,17 +39,7 @@ This project utilizes modern web development technologies:
 
 ## Screenshots
 
-<div style="display: flex; justify-content: space-around;">
-  <div style="flex: 1;">
-    <img src="./src/assets/images/homepage.png" alt="Ekran Görüntüsü 1" style="width: 100%; height: auto;">
-  </div>
-  <div style="flex: 1;">
-    <img src="./src/assets/images/searchpage.png" alt="Ekran Görüntüsü 2" style="width: 100%; height: auto;">
-  </div>
-  <div style="flex: 1;">
-    <img src="./src/assets/images/librarypage.png" alt="Ekran Görüntüsü 3" style="width: 100%; height: auto;">
-  </div>
-</div>
+<div style="display: flex; justify-content: space-between; gap: 10px; max-width: 100%;"> <div style="flex: 1; text-align: center;"> <img src="./src/assets/images/homepage.png" alt="Homepage" style="width: 100%; max-width: 250px; height: auto; border-radius: 8px;"> <p style="font-size: 14px; margin: 5px 0 0 0;">Homepage</p> </div> <div style="flex: 1; text-align: center;"> <img src="./src/assets/images/searchpage.png" alt="Search Page" style="width: 100%; max-width: 250px; height: auto; border-radius: 8px;"> <p style="font-size: 14px; margin: 5px 0 0 0;">Search Page</p> </div> <div style="flex: 1; text-align: center;"> <img src="./src/assets/images/librarypage.png" alt="Library Page" style="width: 100%; max-width: 250px; height: auto; border-radius: 8px;"> <p style="font-size: 14px; margin: 5px 0 0 0;">Library Page</p> </div> </div>
 
 ## How to Install
 
